@@ -1,0 +1,40 @@
+{
+  "name": "waste-classifier",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www.mjs",
+    "develop": "DEBUG=wc:server nodemon ./bin/www.mjs --config ./nodemon.json",
+    "lint": "./node_modules/.bin/eslint . --ext .mjs,js",
+    "lint:fix": "./node_modules/.bin/eslint . --ext .mjs,js --fix",
+    "fetch-dataset": "./classifier/fetch-dataset.sh",
+    "train-model": "node ./classifier/train.mjs",
+    "train-model:dev": "NODE_ENV=dev node ./classifier/train.mjs",
+    "test-model": "node ./classifier/test.mjs",
+    "test-prediction": "node ./classifier/test-prediction.mjs"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs-node": "^3.14.0",
+    "@tensorflow/tfjs-node-gpu": "^3.18.0",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "express-fileupload": "^1.4.0",
+    "helmet": "^5.1.0",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.17.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.2",
+    "eslint-plugin-promise": "^6.0.0",
+    "nodemon": "^2.0.16"
+  },
+  "engines": {
+    "node": "16.x"
+  }
+}
